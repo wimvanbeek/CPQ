@@ -4,9 +4,9 @@
     <fields>
         <fullName>ErrorMsg__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>Will be filled in Apex</inlineHelpText>
+        <inlineHelpText>Will be filled in Apex only.</inlineHelpText>
         <label>ErrorMsg</label>
-        <length>100</length>
+        <length>200</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
