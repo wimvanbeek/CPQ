@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <validationRules>
+        <fullName>Check_related_productstatus_for_CP_statu</fullName>
+        <active>true</active>
+        <description>CanCreateCP of product drives this validation</description>
+        <errorConditionFormula>AND ( 
+$Setup.Global_Bypass_Processes_Settings__c.Run_Validation_Rules__c
+, 
+
+CanCreateCP__c &gt; 0 
+&amp;&amp;  
+(TEXT(SBQQ__Status__c ) != &apos;Draft&apos; 
+&amp;&amp;
+TEXT(SBQQ__Status__c ) != &apos;Rejected&apos;
+ )
+&amp;&amp; ISCHANGED(SBQQ__Status__c)
+&amp;&amp; ISBLANK( TEXT(LOB1__c))  = false 
+)</errorConditionFormula>
+        <errorMessage>The quote status cannot be moved to Presented or Accepted because one of the products has a non-active product status or LOB1 is empty</errorMessage>
+    </validationRules>
+</CustomObject>
